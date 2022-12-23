@@ -1,0 +1,73 @@
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div class="container">
+  <section class="container">
+    <div class="new-most-song mt-5">
+      <div class="row p-10">
+        <div class="col-12">
+          <h4 style="color:black"class="font-weight-bold">Bài hát</h4>
+          <table class="table table-striped d-print-table-cell">
+            <thead class="thead-green">
+            <tr>
+              <th style="color:black"scope="col">STT</th>
+              <th style="color:black"scope="col">Tên</th>
+              <th style="color:black"scope="col">Ảnh</th>
+              <th style="color:black"scope="col">Danh sách phát</th>
+              <th style="color:black"scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let playlist of playlists | paginate: { itemsPerPage: 7, currentPage: p },let indexOfelement=index;">
+              <th style="color:black"scope="row">{{indexOfelement + 1}}</th>
+              <td style="color:black"routerLink="search{{playlist.id}}">{{playlist.name}}</td>
+              <td><img width="40" height="40" src="{{playlist.avatar}}" class="img thumbnail pull-left mr-2"></td>
+              <td>
+                <button style="color:black;"type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#song-in-play-list-modal"
+                        (click)="showSongInPlaylist(playlist.id)">
+                  Danh sách phát
+                </button>
+                <!-- The Modal -->
+                <div class="modal" id="song-in-play-list-modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 style="color:black;"class="modal-title">Danh sách phát</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <div *ngFor="let song of songs;index as i">
+                          {{song.name}}
+                        </div>
+                      </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Thoát</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <button style="color:black" class="btn btn-outline-primary" routerLink="playlists/play/{{playlist.id}}"> |⫸ </button>
+              </td>
+              <td>
+
+              </td>
+            </tr>
+            </tbody>
+            <button style="color:black" routerLink="" class="btn btn-outline-primary">Trang chủ</button>
+          </table>
+          <div class="text-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

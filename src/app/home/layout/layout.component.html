@@ -1,0 +1,60 @@
+<div id="layout">
+  <div class="container">
+    <app-navbar-menu></app-navbar-menu>
+    <div><br></div> <div><br></div> <div><br></div>
+<!--    <header class="masthead">-->
+<!--      <div class="container d-flex h-100 align-items-center">-->
+<!--        <div class="mx-auto text-center">-->
+<!--          <h1 class="mx-auto my-0 text-uppercase">H T V 3</h1>-->
+<!--          <h2 class="text-white-50 mx-auto mt-2 mb-5"> “Hãy nghe nhạc bằng tai”</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </header>-->
+    <app-poster></app-poster>
+    <div class="row p-3">
+      <div class="col-9" style="padding-left: 0">
+        <h2 class="mb-1 text-dark" style="padding-bottom: 20px" ><b>Bài hát</b></h2>
+        <app-list-order-view-song></app-list-order-view-song>
+        <div class="row p-2"></div>
+        <app-list-new-song></app-list-new-song>
+      </div>
+      <div class="col-3" style="padding-right: 0">
+        <div class="sidebar" >
+          <h2 class="mb-1 text-dark" style="padding-bottom: 20px" ><b>&nbsp;BXH Playlist</b></h2>
+          <div *ngFor="let playlist of playlists;index as i">
+            <div class="queue-entry flex-space"  *ngIf="i < 6">
+              <h3 class="mb-1 text-dark queue-number" style="padding-bottom: 20px"><b>{{i+1}}</b></h3>
+              <div class="queue-entry-image"><a [routerLink]="['playlists/play',playlist.id]"><img src="{{playlist.avatar}}" width="64px" height="74px"  style=" display: block"></a></div>
+              <div class="queue-entry-info">
+                <a [routerLink]="['playlists/play',playlist.id]"><b>{{playlist.name}}</b></a>
+                <p class="language-sub latest-release-sub queue-entry-sub">{{playlist.users?.name}}</p>
+              </div>
+              <div class="like-icon"><a href="#"><i class="fa fa-heart text-danger" aria-hidden="true"></i></a></div>
+            </div>
+          </div>
+        </div>
+      <!--      <app-list-new-playlist></app-list-new-playlist>-->
+      <!--      <app-singer></app-singer>-->
+    </div>
+    </div>
+    <div class="row p-2"></div>
+<!--    <h2 class="mb-1 text-dark" style="padding-bottom: 20px" ><b>Playlist</b></h2>-->
+    <app-list-new-playlist></app-list-new-playlist>
+    <div class="row p-2"></div>
+    <app-list-order-view-playlist></app-list-order-view-playlist>
+
+    <div>
+            <app-list-all></app-list-all>
+    </div>
+  </div>
+  <div class="container">
+    <app-footer></app-footer>
+  </div>
+</div>
+<!--  <footer class="fixed-bottom" style="height: 100px;width: 100%" >-->
+<!--    <ngx-audio-player [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false"-->
+<!--                      muted="muted" [displayPlaylist]="msaapDisplayPlayList" [pageSizeOptions]="msaapPageSizeOptions" (trackEnded)="onEnded($event)"-->
+<!--                      [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"-->
+<!--                      [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist"-->
+<!--                      [displayDuration]="msaapDisplayDuration" [expanded]="true"></ngx-audio-player>-->
+<!--  </footer>-->

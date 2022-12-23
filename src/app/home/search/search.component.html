@@ -1,0 +1,98 @@
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div class="container">
+  <section class="container">
+    <div style="margin-top: 1px">
+      <div class="new-most-song mt-5">
+        <div class="row p-5">
+          <div class="col-12">
+            <h2 style="color:#211f1e;" class="font-weight-bold">Bài hát</h2>
+            <table class="table table-striped d-print-table-cell">
+              <thead class="thead-green">
+              <tr>
+                <th style="color:#211f1e;" scope="col">STT</th>
+                <th style="color:#211f1e;" scope="col">Ảnh</th>
+                <th style="color:#211f1e;" scope="col">Bài hát</th>
+                <th style="color:#211f1e;" scope="col">Mô tả</th>
+                <th style="color:#211f1e;" scope="col">Tác giả</th>
+                <th style="color:#211f1e;" scope="col">Lượt xem</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr style="color: black" *ngFor="let song of songs | paginate: { itemsPerPage: 5, currentPage: p },let indexOfelement=index;">
+                <th style="color:#211f1e;" scope="row">{{indexOfelement + 1}}</th>
+                <td><img width="40" height="40" src="{{song.avatar}}" class="img thumbnail pull-left mr-2"></td>
+                <td style="color:#211f1e;" routerLink="search{{song.id}}">{{song.name}}</td>
+                <td style="color:#211f1e;" routerLink="search{{song.id}}">{{song.describeSong}}</td>
+                <td style="color:#211f1e;" routerLink="search{{song.id}}">{{song.author!.name}}</td>
+                <td style="color:#211f1e;" routerLink="search{{song.id}}">{{song.viewSong}}</td>
+                <td>
+                  <button style="color:#211f1e;" type="button" class="btn btn-link" data-toggle="modal"
+                          [attr.data-target]="'#myModal' + song.id">Thêm vào danh sách phát
+                  </button>
+                </td>
+                <td><!-- The Modal -->
+                  <div class="modal" id="{{'myModal' + song.id}}">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 style="color:#211f1e;" class="modal-title">Danh sách phát</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                          <div *ngFor="let playlist of playListUser;index as i"
+                               (click)="addSongToPlaylist(playlist.id, song.id)">
+                            <button style="color:#211f1e;" class="btn btn-link">{{playlist.name}}</button>
+                          </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Thoát</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td><a style="color: #050505" routerLink="song/{{song.id}}" data-tip="play"><i class="fa fa-play-circle"></i>
+                </a></td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="text-center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div>
+              <h4 style="color:#211f1e;" class="font-weight-bold">Danh sách phát</h4>
+              <table class="table table-striped d-print-table-cell">
+                <thead class="thead-green">
+                </thead>
+                <tbody>
+                <tr *ngFor="let playlist of playlists | paginate: { itemsPerPage: 5, currentPage: pl },let indexOfelement=index;">
+                  <th style="color:#211f1e;" scope="row">{{indexOfelement + 1}}</th>
+                  <td style="color:#211f1e;" routerLink="search{{playlist.id}}">{{playlist.name}}</td>
+                  <td><img width="40" height="40" src="{{playlist.avatar}}" class="img thumbnail pull-left mr-2"></td>
+                  <td>
+                  <td><a style="color: #050505" routerLink="/playlists/play/{{playlist.id}}" data-tip="play"><i class="fa fa-play-circle"></i>
+                  </a></td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="text-center">
+                <pagination-controls (pageChange)="pl = $event"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

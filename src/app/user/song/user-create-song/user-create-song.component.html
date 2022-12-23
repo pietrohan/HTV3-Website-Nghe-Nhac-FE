@@ -1,0 +1,50 @@
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div class="container">
+  <div><br></div>
+  <h3 class="mb-1 text-dark" style="padding-bottom: 20px"><b>Thêm bài hát mới</b></h3>
+  <div class="col-6">
+    <form [formGroup]="songForm">
+      <table class="table">
+        <thead class="thead-green">
+        <tr class="font-group">
+          <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Tên:</b></td>
+          <td class="custom-input"><input type="text" formControlName="name" placeholder="Nhập tên bài hát..."></td>
+        </tr>
+
+        <tr class="font-group">
+          <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Mô tả: </b></td>
+          <td class="custom-input"><input type="text" formControlName="describeSong"
+                                          placeholder="Nhập mô tả bài hát..."></td>
+        </tr>
+
+        <tr class="font-group">
+          <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Ảnh:</b></td>
+          <td><input style="color: #050505" type="file" (change)="sendToFirebaseImg()"></td>
+        </tr>
+        <br>
+        <tr class="font-group">
+          <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px">Tệp mp3: </b></td>
+
+            <td><input style="color: #050505" type="file" (change)="sendToFirebaseMp3()"></td>
+
+        </tr>
+        <br>
+        <tr style="alignment: center">
+          <td></td>
+          <td>
+            <button style="color: #050505" class="btn btn-outline-primary" (click)="saveSong()">Tạo mới</button>&nbsp;&nbsp;
+            &nbsp;
+            <button style="color: #050505" routerLink="/userListSong" class="btn btn-outline-success">Quay lại
+            </button>
+          </td>
+        </tr>
+        </thead>
+      </table>
+    </form>
+  </div>
+  <app-list-new-song></app-list-new-song>
+</div>
+

@@ -1,0 +1,16 @@
+<h1>Danh sách phát </h1>
+
+<table border="1">
+  <tr>
+    <td>Tên</td>
+    <td>Xoá</td>
+    <td colspan="2"></td>
+  </tr>
+  <tr *ngFor="let song of songs;index as i" >
+    <td>{{song.name}}</td>
+    <td>
+      <button (click)="delete(song.id)" class="btn btn-outline-danger" >Xoá</button>
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,37 @@
+.custom-input input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  height: 3rem;
+  padding-left: 0.5rem;
+  color: #fff;
+}
+::placeholder { /* chạy tốt trên Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #050505 !important;
+  opacity: 1;
+  font-size: 17px;
+}
+.custom-input-file{
+  position: relative;
+  padding: 11px 16px;
+  font-size: 10px;
+  line-height: 1.5;
+  border-radius: 20px;
+  color: #2a2b2b;
+  background-color: #f0b7ec;
+  border: 0;
+  transition: 0.2s;
+  overflow: hidden;
+}
+
+.custom-input-file input[type = "file"]{
+  cursor: pointer;
+  position: absolute;
+  transform: scale(1);
+  opacity: 0;
+}
+
+.custom-input-file:hover{
+  background-color: #d9a400;
+}

@@ -1,0 +1,74 @@
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div class="container">
+  <section class="container">
+<div class="new-most-song mt-5">
+  <div class="row p-10">
+    <div class="col-12">
+      <h4 style="color:black" class="font-weight-bold">Bài hát</h4>
+      <table class="table table-striped d-print-table-cell">
+        <thead class="thead-green">
+        <tr>
+          <th style="color:black"scope="col">STT</th>
+          <th style="color:black"scope="col">Ảnh</th>
+          <th style="color:black"scope="col">Bài hát</th>
+          <th style="color:black"scope="col">Mô tả</th>
+          <th style="color:black"scope="col">Lượt xem</th>
+          <th style="color:black"scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let song of songs | paginate: { itemsPerPage: 7, currentPage: p },let indexOfelement=index;">
+          <th style="color:black"scope="row">{{indexOfelement + 1}}</th>
+          <td><img width="40" height="40" src="{{song.avatar}}" class="img thumbnail pull-left mr-2"></td>
+          <td style="color:black"routerLink="search{{song.id}}">{{song.name}}</td>
+          <td style="color:black"routerLink="search{{song.id}}">{{song.describeSong}}</td>
+          <td style="color:black"routerLink="search{{song.id}}">{{song.viewSong}}</td>
+          <td>
+            <button style="color:black" class="btn btn-outline-primary" routerLink="/songs/song/{{song.id}}"> |⫸</button>
+          </td>
+<!--          <td>-->
+<!--            <button style="color:black" type="button" class="btn btn-outline-primary" data-toggle="modal"-->
+<!--                    [attr.data-target]="'#myModal'">Thêm vào danh sách phát</button>-->
+<!--          </td>-->
+<!--          <td>&lt;!&ndash; The Modal &ndash;&gt;-->
+<!--            <div class="modal" id="{{'myModal'}}">-->
+<!--              <div class="modal-dialog">-->
+<!--                <div class="modal-content">-->
+<!--                  &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--                  <div class="modal-header">-->
+<!--                    <h4 style="color:black" class="modal-title">Danh sách phát</h4>-->
+<!--                    <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--                  <div class="modal-body">-->
+<!--                    <div *ngFor="let playlist of playListUser;index as i" (click)="addSongToAllPlaylist(playlist.id)">-->
+<!--                      <button style="color:black" class="btn btn-link">{{playlist.name}}</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--                  <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Thoát</button>-->
+<!--                  </div>-->
+
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </td>-->
+        </tr>
+        </tbody>
+        <button style="color:black" routerLink="" class="btn btn-outline-primary">Trang chủ</button>
+      </table>
+      <div class="text-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+</div>
+<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>
+<div><br></div><div><br></div>
+

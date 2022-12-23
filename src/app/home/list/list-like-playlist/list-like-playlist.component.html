@@ -1,0 +1,14 @@
+<aside class="sidebar" >
+  <h3 class="mb-1 text-dark" style="padding-bottom: 20px" ><b>BXH Playlist</b></h3>
+  <div *ngFor="let playlist of playlists;index as i">
+    <div class="queue-entry flex-space"  *ngIf="i < 6">
+      <h3 class="mb-1 text-dark queue-number" style="padding-bottom: 20px"><b>{{i+1}}</b></h3>
+      <div class="queue-entry-image"><img src="{{playlist.avatar}}" width="64px" height="74px"  style=" display: block"></div>
+      <div class="queue-entry-info">
+        <p><b>{{playlist.name}}</b></p>
+        <p class="language-sub latest-release-sub queue-entry-sub">{{playlist.users?.name}}</p>
+      </div>
+      <div class="like-icon"><a href="#"><i class="fa fa-heart text-danger" aria-hidden="true"></i></a></div>
+    </div>
+  </div>
+</aside>

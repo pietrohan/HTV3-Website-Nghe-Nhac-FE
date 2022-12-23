@@ -1,0 +1,89 @@
+<!--<app-navbar-menu></app-navbar-menu>-->
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div class="container">
+  <section class="container">
+    <div class="new-most-song mt-5">
+      <div class="row p-10">
+        <div class="col-12">
+
+          <h2 class="font-weight-bold" style="color:#211f1e;">Danh sách phát của bạn</h2>
+          <button class="btn btn-outline-info">
+            <a style="color:#211f1e;" routerLink="/playlist/createplaylist">Tạo danh sách</a>
+          </button>
+          <br><br>
+          <table class="table table-striped d-print-table-cell">
+            <thead class="thead-green">
+            <tr>
+              <th style="color:#211f1e;" scope="col">STT</th>
+              <th style="color:#211f1e;" scope="col">Tên</th>
+              <th style="color:#211f1e;" scope="col">Ảnh</th>
+              <th style="color:#211f1e;" scope="col">Danh sách</th>
+              <th style="color:#211f1e;" scope="col"></th>
+              <th style="color:#211f1e;" scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="color: black"
+                *ngFor="let playlist of playlist | paginate: { itemsPerPage: 7, currentPage: p },let indexOfelement=index;">
+              <th style="color:#211f1e;" scope="row">{{indexOfelement + 1}}</th>
+              <td style="color:#211f1e;" routerLink="playlist{{playlist.id}}">{{playlist.name}}</td>
+              <td><img width="40" height="40" src="{{playlist.avatar}}" class="img thumbnail pull-left mr-2"></td>
+              <td>
+                <button style="color:#211f1e;" type="button" class="btn btn-link" data-toggle="modal"
+                        data-target="#song-in-play-list-modal"
+                        (click)="showSongInPlaylist(playlist.id)">
+                  Danh sách phát
+                </button>
+                <!-- The Modal -->
+                <div class="modal" id="song-in-play-list-modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 style="color:#211f1e;" class="modal-title">Danh sách phát</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <div *ngFor="let song of songs;index as i">
+                          {{song.name}}
+                        </div>
+                      </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Thoát</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td><a style="color: #050505" routerLink="/playlists/play/{{playlist.id}}" data-tip="play"><i
+                class="fa fa-play"></i>
+              </a></td>
+              <td>
+                <a style="color:#211f1e;" routerLink="/playlist/edit1/{{playlist.id}}" data-tip="edit"><i
+                  class="fa fa-edit"></i></a>
+              </td>
+              <td style="color: #050505" (click)="delete(playlist.id)" data-tip="delete"><i class="fa fa-trash"></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="text-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          <div class="modal-footer">
+            <button style="color:#211f1e;" routerLink="" type="button" class="btn btn-outline-info"
+                    data-dismiss="modal">Trang chủ
+            </button>
+          </div>
+          <!--        git chec-->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+

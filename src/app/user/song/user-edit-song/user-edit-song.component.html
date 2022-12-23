@@ -1,0 +1,55 @@
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div><br></div>
+<div class="container">
+  <section class="container">
+    <div class="new-most-song mt-5">
+      <h3 class="mb-1 text-dark" style="padding-bottom: 20px"><b>Chỉnh sửa bài hát</b></h3>
+      <div class="row p-10">
+        <div class="col-6">
+          <div><br></div>
+          <form [formGroup]="songForm">
+            <table class="table">
+              <thead class="thead-green">
+              <tr class="font-group">
+                <input hidden class="form-control" formControlName="id" id="id" placeholder="name">
+              </tr>
+              <tr class="font-group">
+                <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Tên:</b></td>
+                <td class="custom-input" ><input  type="text" class="form-control" formControlName="name" id="name"  placeholder="Nhập tên bài hát..."></td>
+              </tr>
+              <br>
+              <tr class="font-group">
+                <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Mô tả: </b></td>
+                <td class="custom-input" ><input  type="text" class="form-control" formControlName="describeSong" id="describeSong" placeholder="Nhập mô tả bài hát..."></td>
+              </tr>
+              <br>
+              <tr class="font-group">
+                <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px"> Ảnh:</b></td>
+                <td><input style="color: #050505" type="file" formControlName="avatar" id="avatar" placeholder="avatar"></td>
+              </tr>
+              <br>
+              <tr class="font-group">
+                <td style="color: #050505"><b class="mb-1 text-dark" style=" font-size:20px">Tệp mp3: </b></td>
+                <td><input style="color: #050505" type="file" (change)="sendToFirebaseMp3()"></td>
+              </tr>
+              <br>
+              <tr style="alignment: center">
+                <td></td>
+                <td>
+                  <button style="color: #050505" (click)="update()" class="btn btn-outline-info">Cập nhật
+                  </button>&nbsp;&nbsp;
+                  <button style="color: #050505" routerLink="/userListSong" class="btn btn-outline-info">Quay lại
+                  </button>
+                </td>
+              </tr>
+              </thead>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-list-new-song></app-list-new-song>
+</div>
+

@@ -1,0 +1,70 @@
+<section id="newmostsongs">
+  <div class="new-most-song">
+    <div class="row p-3">
+      <div class="col-6">
+        <h4 class="font-weight-bold">Bài hát</h4>
+        <ul class="list-group br-1" *ngFor="let song of songs   ; index as i">
+          <li class="list-group-item pb-1" *ngIf="i < 5">
+            <a class="name-of-song" [routerLink]="['song',song.id]">
+              <img width="40" height="40" src="{{song.avatar}}" class="img thumbnail pull-left mr-2">
+              <h6 class="mb-1 text-dark"><b>{{song.name}}</b></h6>
+            </a>
+            <span style="float: left">
+<!--              <p class="mb-0 singer">{{song.user.name}}</p>-->
+              <p class="mb-0 singer" style="color: white;">.</p>
+              </span>
+          </li>
+        </ul>
+<!--        <div class="text-center">-->
+<!--          <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+<!--        </div>-->
+        <a class="text-info">
+          <div class="text-center mt-3"><a [routerLink]="['/songs']">Xem tất cả</a></div>
+        </a>
+      </div>
+<!--      <div class="col-6">-->
+<!--        <h4 class="font-weight-bold">Danh sách phát</h4>-->
+<!--        <ul class="list-group br-1" *ngFor="let playlist of playlists ; index as i">-->
+<!--          <li class="list-group-item pb-1" *ngIf="i < 5" >-->
+<!--            <a class="name-of-song" [routerLink]="['playlists/play',playlist.id]">-->
+<!--              <img src="{{playlist.avatar}}" width="40" height="40" alt="" class="img thumbnail pull-left mr-2">-->
+<!--              <p style=" width: 40px; height: 40px;"  class="img thumbnail pull-left mr-2"></p>-->
+<!--              <h6 class="mb-1 text-dark"><b>{{playlist.name}}</b></h6>-->
+<!--            </a>-->
+<!--            <span style="float: left">-->
+<!--              <p class="mb-0 singer">Người tạo: {{playlist.users?.name}}</p>-->
+<!--              </span>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--&lt;!&ndash;        <div class="text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;          <pagination-controls (pageChange)="p2 = $event"></pagination-controls>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <a class="text-info">-->
+<!--          <div class="text-center mt-3"><a [routerLink]="['/playlistbyuser']">Xem tất cả</a></div>-->
+<!--        </a>-->
+<!--      </div>-->
+      <div class="col-6">
+        <h4 class="font-weight-bold">Danh sách phát</h4>
+        <ul class="list-group br-1" *ngFor="let playlist of playlists   ; index as i">
+          <li class="list-group-item pb-1" *ngIf="i < 5">
+            <a class="name-of-song" [routerLink]="['playlists/play',playlist.id]">
+              <img width="40" height="40" src="{{playlist.avatar}}" class="img thumbnail pull-left mr-2">
+              <h6 class="mb-1 text-dark"><b>{{playlist.name}}</b></h6>
+            </a>
+            <span style="float: left">
+              <p class="mb-0 singer">{{playlist.users?.name}}</p>
+<!--              <p class="mb-0 singer">.</p>-->
+              </span>
+          </li>
+        </ul>
+        <!--        <div class="text-center">-->
+        <!--          <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+        <!--        </div>-->
+        <a class="text-info">
+          <div class="text-center mt-3"><a [routerLink]="['/playlistbyuser']">Xem tất cả</a></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,54 @@
+
+<app-navbar-menu></app-navbar-menu>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+
+<div><br></div>
+<div><br></div>
+<div class="container">
+  <div class="container">
+<h1 style="color: #19191a">Tạo danh sách mới</h1>
+<form  [formGroup]="playlistForm" >
+  <table>
+    <tr>
+      <td style="color: #19191a">Tên:</td>
+      <td><input type="text" formControlName="name" placeholder="Nhập tên danh sách phát..."></td>
+    </tr><br>
+    <tr>
+      <td style="color: #19191a">Ảnh:</td>
+      <td><input type="file"  (change)="sendToFirebaseImg()"> </td>
+    </tr><br>
+    <tr>
+      <td></td>
+      <td>
+        <button style="color: #19191a"class="btn btn-outline-primary" (click)="savePlaylist()">Tạo mới</button> &nbsp; &nbsp;
+        <button style="color: #19191a"routerLink="/playlist" class="btn btn-outline-info">Quay lại</button>
+      </td>
+    </tr>
+  </table>
+</form>
+</div>
+</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+
+<div><br></div>
+<div><br></div><div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+
+
+
+

@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top amplitude-stop" id="mainNav">
+<!--  <div class="dropdown">-->
+<!--    <button class="" type="button" data-toggle="dropdown"><i class="fa fa-bars" aria-hidden="true"></i>-->
+<!--      <span class="card"></span></button>-->
+<!--    <ul class="dropdown-menu">-->
+<!--      <li> <a routerLink="create/:id" class="">Thêm bài hát</a></li>-->
+<!--      <li> <a routerLink="/playlist/create" class="">Thêm danh phát</a></li>-->
+<!--      <li> <a routerLink="" class="">Thêm ca sĩ</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" [routerLink]="['']">
+      <span style="color: #6f42c1;" class="fa-stack fa-sm">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-music fa-stack-1x fa-inverse fa-spin"></i>
+      </span>
+      <div style="float: right; margin-top: 5px" >HTV3</div></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li style="margin-top: 20px ; margin-right: 20px" class="nav-item">
+          <form class="form-inline" [formGroup]="searchForm"  (ngSubmit)="search()">
+            <input class="form-control mr-xl-2 " type="text" placeholder="𝄞 Tìm kiếm bài hát, tác giả, ca sĩ, danh sách phát..." aria-label="Search" size="60" formControlName="nameSearch" >
+            <td><button (click)="search()" class="btn btn-info" >Tìm kiếm</button></td>
+          </form>
+        </li>
+
+        <li *ngIf="!isLoggedIn" class="nav-item"><a class="nav-link js-scroll-trigger" [routerLink]="['/login']">Đăng nhập</a></li>
+        <li *ngIf="!isLoggedIn" class="nav-item"><a class="nav-link js-scroll-trigger" [routerLink]="['/register']">Đăng ký</a></li>
+        <li *ngIf="isLoggedIn" class="nav-item"><p class="nav-link js-scroll-trigger" ></p></li>
+        <li *ngIf="isLoggedIn" class="nav-item"><a class="nav-link js-scroll-trigger" [matMenuTriggerFor]="menu">{{user?.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <a routerLink='/userProfile'>Cá nhân</a>
+  </button>
+  <button mat-menu-item>
+    <a routerLink='/userListSong'>Quản lý bài hát</a>
+  </button>
+  <button mat-menu-item>
+    <a routerLink='/userplaylist'>Quản lý Playlist</a>
+  </button>
+  <button mat-menu-item>
+    <a routerLink="/changePassword">Đổi mật khẩu</a>
+  </button>
+  <button mat-menu-item>
+    <li (click)="logout()">Đăng xuất</li>
+  </button>
+</mat-menu>

@@ -1,0 +1,48 @@
+.queue-entry{
+  align-items: center;
+  margin-bottom: 1em;
+}
+.container-flex, .flex-space{
+  display: flex;
+  justify-content: space-between;
+}
+.playlist-aside{
+  width:20%;
+}
+@media screen and (max-width:650px){
+  .playlist-aside{
+    width:100%;
+  }
+  .queue-entry-info p, .queue-entry-sub, .queue-number{
+    font-size:1rem;
+  }
+}
+.queue-number{
+  width:10%;
+}
+@media screen and (max-width: 840px){
+  .queue-entry-info p, .queue-entry-sub, .queue-number{
+    font-size:0.6rem;
+  }
+}
+.queue-entry-image{
+  width:20%;
+}
+.queue-entry-info{
+  width:60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.language-sub{
+  font-size:0.7rem;
+  margin-top:0;
+}
+.latest-release-sub{
+  font-weight: 1;
+  font-size: 0.75rem;
+  color: #070709;
+}
+.like-icon{
+  width:5%;
+}
